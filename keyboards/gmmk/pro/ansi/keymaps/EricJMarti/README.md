@@ -21,3 +21,5 @@
 
 - NKRO enabled by default
 - RGB will automatically turn off after 20 minutes or if the host goes to sleep
+- RGB configured to violet solid color mode by default
+
