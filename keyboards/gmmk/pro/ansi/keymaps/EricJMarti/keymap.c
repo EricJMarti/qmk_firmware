@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, RGB_VAI, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RESET,            KC_END,
         KC_CAPS, _______, RGB_VAD, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,          _______,
         _______,          _______, RGB_HUI, _______, _______, _______, NK_TOGG, _______, _______, _______, _______,          _______, RGB_MOD, _______,
-        _______, _______, _______,                            _______,                            _______, _______, _______, RGB_SPD, RGB_RMOD, RGB_SPI
+        _______, _______, _______,                            KC_MPLY,                            _______, _______, _______, RGB_SPD, RGB_RMOD, RGB_SPI
     ),
 
 
@@ -61,11 +61,43 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // clang-format on
 
 #ifdef ENCODER_ENABLE
-bool encoder_update_user(uint8_t index, bool clockwise) {
+void encoder_update_vertical_scroll(bool clockwise) {
     if (clockwise) {
-      tap_code(KC_VOLU);
+        tap_code(KC_PGDN);
     } else {
-      tap_code(KC_VOLD);
+        tap_code(KC_PGUP);
+    }
+}
+
+void encoder_update_media_track(bool clockwise) {
+    if (clockwise) {
+        tap_code(KC_MNXT);
+    } else {
+        tap_code(KC_MPRV);
+    }
+}
+
+void encoder_update_volume(bool clockwise) {
+    if (clockwise) {
+        tap_code(KC_VOLU);
+    } else {
+        tap_code(KC_VOLD);
+    }
+}
+
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    uint8_t mods_state = get_mods();
+    if (mods_state & MOD_BIT(KC_LSFT)) {
+        // if holding left shift, scroll vertically
+        unregister_mods(MOD_BIT(KC_LSFT));
+        encoder_update_vertical_scroll(clockwise);
+        register_mods(MOD_BIT(KC_LSFT));
+    } else if (mods_state & MOD_BIT(KC_LCTL)) {
+        // if holding left ctrl, next/prev media track
+        encoder_update_media_track(clockwise);
+    } else {
+        // otherwise, update volume
+        encoder_update_volume(clockwise);
     }
     return true;
 }
