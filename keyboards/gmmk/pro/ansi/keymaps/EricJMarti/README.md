@@ -9,6 +9,7 @@
 - `Fn + Delete` has been mapped to End
 - `Fn + Right Ctrl` layer contains RGB controls from the default keymap's `Fn` layer
 - `Fn + Right Ctrl + Prtsc` has been mapped to RGB Toggle
+- `Fn + Right Ctrl + \` has been mapped to EEPROM Reset
 - `Fn + Space` plays or pauses media
 - `Left Shift + Rotary Encoder` scrolls vertically
 - `Left Ctrl + Rotary Encoder` goes to next/previous media track
