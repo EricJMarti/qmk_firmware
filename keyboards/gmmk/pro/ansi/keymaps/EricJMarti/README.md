@@ -3,9 +3,9 @@
 ## Changes relative to default keymap
 
 - Holding `Caps Lock` activates a layer with frequent shortcuts and vim navigation keys
-- Holding `Caps Lock + Left Shift` activates a numpad layer
+- Holding `Esc` activates a numpad layer
+- `Caps Lock + Backspace` has been mapped to Delete
 - `Caps Lock + Spacebar` has been mapped to Esc
-- `Caps Lock + Right Shift + Spacebar` has been mapped to Delete
 - `Fn + Caps Lock` has been mapped to Caps Lock
 - The four keys under the rotary encoder are mapped to Insert, Delete, Page Up, and Page Down
 - `Fn + Insert` has been mapped to Home
