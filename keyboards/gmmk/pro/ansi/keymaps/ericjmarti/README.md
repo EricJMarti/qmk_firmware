@@ -7,9 +7,9 @@
 - `Caps Lock + Backspace` has been mapped to Delete
 - `Caps Lock + Spacebar` has been mapped to Esc
 - `Fn + Caps Lock` has been mapped to Caps Lock
-- The four keys under the rotary encoder are mapped to Insert, Delete, Page Up, and Page Down
-- `Fn + Insert` has been mapped to Home
-- `Fn + Delete` has been mapped to End
+- The four keys under the rotary encoder are mapped to Home, Page Up, Page Down, and End
+- `Fn + Home` has been mapped to Insert
+- `Fn + Backspace` has been mapped to Delete
 - `Fn + Right Ctrl` layer contains RGB controls from the default keymap's `Fn` layer
 - `Fn + Right Ctrl + Prtsc` has been mapped to RGB Toggle
 - `Fn + Right Ctrl + \` has been mapped to EEPROM Reset
